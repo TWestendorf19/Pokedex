@@ -106,5 +106,17 @@ func getCommands() map[string]cliCommand {
 			callback:     commandDetail,
 			callbackspec: commandDetailSpec,
 		},
+		"map": {
+			name:         "map",
+			description:  "Displays the names of 20 locations areas in the Pokemon world. Each subsequent call will display the next 20 locations. Using the special command you can pick an area directly (hopefully).",
+			callback:     commandMap,
+			callbackspec: commandMapSpec,
+		},
+		"mapb": {
+			name:         "mapb",
+			description:  "Similar to map command, but iterates backwards through the list. Using the special command is the same as the map special command.",
+			callback:     commandMapb,
+			callbackspec: commandMapbSpec,
+		},
 	}
 }
