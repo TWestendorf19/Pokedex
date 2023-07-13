@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func commandDetailSpec(commandName string) error {
+func commandDetailSpec(cf *config, commandName string) error {
 	fmt.Println()
 	fmt.Printf("Getting details for command '%s'...", commandName)
 	fmt.Println()
@@ -20,7 +20,7 @@ func commandDetailSpec(commandName string) error {
 	return nil
 }
 
-func commandDetail() error {
+func commandDetail(cf *config) error {
 	fmt.Println()
 	fmt.Println("Cannot use command 'detail' without second command to lookup.")
 	return nil

@@ -12,8 +12,8 @@ import (
 type cliCommand struct {
 	name         string
 	description  string
-	callback     func() error
-	callbackspec func(string) error
+	callback     func(*config) error
+	callbackspec func(*config, string) error
 }
 
 type config struct {
@@ -22,7 +22,7 @@ type config struct {
 	pokeAPIClient pokeapi.Client
 }
 
-func startRepl() {
+func startRepl(cf *config) {
 	reader := bufio.NewScanner(os.Stdin)
 
 	// infinite loop
@@ -53,7 +53,7 @@ func startRepl() {
 
 			// if command is found, call that commands function
 			if exists {
-				err := command.callbackspec(commandSpec)
+				err := command.callbackspec(cf, commandSpec)
 				if err != nil {
 					fmt.Println(err)
 				}
@@ -70,7 +70,7 @@ func startRepl() {
 
 			// if command is found, call that commands function
 			if exists {
-				err := command.callback()
+				err := command.callback(cf)
 				if err != nil {
 					fmt.Println(err)
 				}
@@ -102,12 +102,6 @@ func getCommands() map[string]cliCommand {
 			callback:     commandHelp,
 			callbackspec: commandHelpSpec,
 		},
-		"exit": {
-			name:         "exit",
-			description:  "Exits the Pokedex.",
-			callback:     commandExit,
-			callbackspec: commandExitSpec,
-		},
 		"detail": {
 			name:         "detail",
 			description:  "Provides details on a command given after call. Usage: detail <command>",
@@ -125,6 +119,12 @@ func getCommands() map[string]cliCommand {
 			description:  "Similar to map command, but iterates backwards through the list. Using the special command is the same as the map special command.",
 			callback:     commandMapb,
 			callbackspec: commandMapbSpec,
+		},
+		"exit": {
+			name:         "exit",
+			description:  "Exits the Pokedex.",
+			callback:     commandExit,
+			callbackspec: commandExitSpec,
 		},
 	}
 }

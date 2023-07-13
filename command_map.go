@@ -4,12 +4,12 @@ import (
 	"fmt"
 )
 
-func commandMap() error {
+func commandMap(cf *config) error {
 	// print out location in area and increment area
 	return nil
 }
 
-func commandMapSpec(area string) error {
+func commandMapSpec(cf *config, area string) error {
 	fmt.Printf("Printing out all locations in area: '%s'...", area)
 	return nil
 }

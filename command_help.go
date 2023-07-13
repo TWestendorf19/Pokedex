@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func commandHelp() error {
+func commandHelp(cf *config) error {
 	fmt.Println()
 	fmt.Println("Welcome to the Pokedex!")
 	fmt.Println()
@@ -16,7 +16,7 @@ func commandHelp() error {
 	return nil
 }
 
-func commandHelpSpec(spec string) error {
+func commandHelpSpec(cf *config, spec string) error {
 	fmt.Println()
 
 	// if nameonly is added, show only the names
