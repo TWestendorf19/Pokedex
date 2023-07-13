@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/TWestendorf19/Pokedex/internal/pokeapi"
 )
 
 type cliCommand struct {
@@ -12,6 +14,12 @@ type cliCommand struct {
 	description  string
 	callback     func() error
 	callbackspec func(string) error
+}
+
+type config struct {
+	nextURL       *string
+	previousURL   *string
+	pokeAPIClient pokeapi.Client
 }
 
 func startRepl() {
