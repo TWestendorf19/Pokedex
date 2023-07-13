@@ -18,6 +18,7 @@ type cliCommand struct {
 
 type config struct {
 	nextURL       *string
+	currentURL    *string
 	previousURL   *string
 	pokeAPIClient pokeapi.Client
 }
