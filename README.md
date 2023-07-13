@@ -3,9 +3,9 @@
   This project is based on a Pokedex project guide that can be found on boot.dev, I highly recommend checking them out if you want to work on backend development.
 At this stage it is simply a command line interface with 3 commands. These are detail, help, and exit. 
   
-  Detail returns the details of a specific command and is used with the format 'detail <command>'. 
-  Help returns the details of all available commands and is used with the format 'help' or 'help nameonly'. (Adding the name only special command just lists the names of all commands with no descriptions)
-  Exit ends the program and is used with the format(Special commands added after exit will be printed back out to the user upon exit)
+  Detail returns the details of a specific command and is used with the format 'detail <command>'.  
+  Help returns the details of all available commands and is used with the format 'help' or 'help nameonly'. (Adding the name only special command just lists the names of all commands with no descriptions)  
+  Exit ends the program and is used with the format(Special commands added after exit will be printed back out to the user upon exit)  
 
 ToDo:  
 - Add PokeAPI with map and mapb commands
