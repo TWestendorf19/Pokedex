@@ -1,14 +1,23 @@
 # Pokedex
 
-  This project is based on a Pokedex project guide that can be found on boot.dev, I highly recommend checking them out if you want to work on backend development.
-At this stage it is simply a command line interface with 3 commands. These are detail, help, and exit. 
+  This project is based on a Pokedex project guide that can be found on boot.dev, I highly recommend checking them out if you want to work on backend development.  
+
+  At this stage it is a simple command line interface that has a help and detail command to assist the user, a few traversal commands, and an exit command to end the program.
   
   Detail returns the details of a specific command and is used with the format 'detail <command>'.  
-  Help returns the details of all available commands and is used with the format 'help' or 'help nameonly'. (Adding the name only special command just lists the names of all commands with no descriptions)  
+
+  Help returns the details of all available commands and is used with the format 'help' or 'help nameonly'. (Adding the nameonly special command just lists the names of all commands with no descriptions)  
+
   Exit ends the program and is used with the format(Special commands added after exit will be printed back out to the user upon exit)  
 
+  Map returns a list of all the "areas" 20 at a time and increments through all of them with each call. (adding the name of a location e.g. canalave-city or mt-coronet will return the areas within that location).  
+
+  Mapb is similar to the map command but iterates backwards through the list. (adding the name of a location works the same as map command)  
+
+  Locations will return a list of the "locations" in the game. These locations contain at least one "area".  
+
 ToDo:  
-- Add PokeAPI with map and mapb commands
+- Add Locations command to display possible locations to enter in map commands
 - Add Caching 
 - Add Explore
 - Add Catching

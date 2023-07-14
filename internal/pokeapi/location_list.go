@@ -2,11 +2,12 @@ package pokeapi
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 )
 
-func (client *Client) ListLocations(pageURL *string) (RespShallowLocations, error) {
+func (client *Client) ListAreas(pageURL *string) (AreasResponse, error) {
 	// assign base URL + location to url
 	url := baseURL + "/location-area"
 
@@ -18,30 +19,62 @@ func (client *Client) ListLocations(pageURL *string) (RespShallowLocations, erro
 	// new GET request and if an error is found, return
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		return RespShallowLocations{}, err
+		return AreasResponse{}, err
 	}
 
 	// send request and store response, if error is found return
 	resp, err := client.httpClient.Do(req)
 	if err != nil {
-		return RespShallowLocations{}, err
+		return AreasResponse{}, err
 	}
 	defer resp.Body.Close()
 
 	// read all data from response body, if error found, return
 	dat, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return RespShallowLocations{}, err
+		return AreasResponse{}, err
 	}
 
-	locationsResp := RespShallowLocations{}
+	locationsResp := AreasResponse{}
 	// Unmarshal
 	err = json.Unmarshal(dat, &locationsResp)
-
 	if err != nil {
-		return RespShallowLocations{}, err
+		return AreasResponse{}, err
 	}
 
 	// If we made it this far, everything worked OK, return locations response and nil error
 	return locationsResp, nil
+}
+
+func (client *Client) ListLocations(location string) (LocationsResponse, error) {
+	url := baseURL + "/location/" + location
+
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		fmt.Println("issue creating new request: ")
+		return LocationsResponse{}, err
+	}
+
+	resp, err := client.httpClient.Do(req)
+	if err != nil {
+		fmt.Println("issue parsing request")
+		return LocationsResponse{}, err
+	}
+	defer resp.Body.Close()
+
+	dat, err := io.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("issue reading body")
+		return LocationsResponse{}, err
+	}
+
+	areaResp := LocationsResponse{}
+
+	err = json.Unmarshal(dat, &areaResp)
+	if err != nil {
+		fmt.Println("issue unmarshaling response")
+		return LocationsResponse{}, err
+	}
+
+	return areaResp, nil
 }

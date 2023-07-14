@@ -5,13 +5,19 @@ import (
 )
 
 func commandMap(cf *config) error {
+	/*
+		if cf.nextURL == nil {
+			return errors.New("cannot go forward--at end of list")
+		}
+	*/
+
 	// get location response
-	locationsResp, err := cf.pokeAPIClient.ListLocations(cf.nextURL)
+	locationsResp, err := cf.pokeAPIClient.ListAreas(cf.nextURL)
 	if err != nil {
 		return err
 	}
 
-	// reassign next and previous location URLs
+	// reassign next and previous location URLs to iterate forward
 	cf.nextURL = locationsResp.Next
 	cf.previousURL = locationsResp.Previous
 
@@ -24,20 +30,16 @@ func commandMap(cf *config) error {
 }
 
 func commandMapSpec(cf *config, location string) error {
-	fmt.Printf("Printing out all areas in location: '%s'...", location)
-	*cf.currentURL = "https://pokeapi.co/api/v2/location-area/" + location
+	fmt.Printf("Printing out all areas in location: '%s'...\n", location)
+
 	// get location response
-	locationsResp, err := cf.pokeAPIClient.ListLocations(cf.currentURL)
+	locationsResp, err := cf.pokeAPIClient.ListLocations(location)
 	if err != nil {
 		return err
 	}
 
-	// reassign next and previous location URLs
-	cf.nextURL = locationsResp.Next
-	cf.previousURL = locationsResp.Previous
-
 	// print out all locations in area
-	for _, loc := range locationsResp.Results {
+	for _, loc := range locationsResp.Areas {
 		fmt.Println(loc.Name)
 	}
 
