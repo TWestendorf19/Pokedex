@@ -56,6 +56,7 @@ func startRepl(cf *config) {
 				err := command.callbackspec(cf, commandSpec)
 				if err != nil {
 					fmt.Println(err)
+					fmt.Println()
 				}
 				continue
 			} else { // otherwise print unknown command message and prompt for help command
@@ -73,10 +74,13 @@ func startRepl(cf *config) {
 				err := command.callback(cf)
 				if err != nil {
 					fmt.Println(err)
+					fmt.Println()
 				}
 				continue
 			} else { // otherwise print unknown command message and prompt for help command
+				fmt.Println()
 				fmt.Println("Unknown command, type help for command list.")
+				fmt.Println()
 				continue
 			}
 		}
@@ -110,7 +114,7 @@ func getCommands() map[string]cliCommand {
 		},
 		"map": {
 			name:         "map",
-			description:  "Displays the names of 20 locations areas in the Pokemon world. Each subsequent call will display the next 20 locations. Using the special command you can pick an area directly (hopefully).",
+			description:  "Displays the names of 20 'areas' in the Pokemon world. Each subsequent call will display the next 20 'areas'. Using the special command you can directly pick a 'location' to see all 'areas' there.",
 			callback:     commandMap,
 			callbackspec: commandMapSpec,
 		},
@@ -119,6 +123,12 @@ func getCommands() map[string]cliCommand {
 			description:  "Similar to map command, but iterates backwards through the list. Using the special command is the same as the map special command.",
 			callback:     commandMapb,
 			callbackspec: commandMapbSpec,
+		},
+		"locations": {
+			name:         "locations",
+			description:  "Traverses forward through a list of the 'locations' available to explore using map commands. To go back use 'locations back'",
+			callback:     commandLocations,
+			callbackspec: commandLocationsBack,
 		},
 		"exit": {
 			name:         "exit",
