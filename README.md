@@ -3,8 +3,10 @@
   This project is based on a Pokedex project guide that can be found on boot.dev, I highly recommend checking them out if you want to work on backend development.  
 
   At this stage it is a simple command line interface that has a help and detail command to assist the user, a few traversal commands, and an exit command to end the program.
-  
-  Detail returns the details of a specific command and is used with the format 'detail <command>'.  
+
+  ## Commands  
+    
+  * Detail returns the details of a specific command and is used with the format 'detail <command>'.  
 
   * Help returns the details of all available commands and is used with the format 'help' or 'help nameonly'. (Adding the nameonly special command just lists the names of all commands with no descriptions)  
 
@@ -16,7 +18,8 @@
 
   * Locations will return a list of the "locations" in the game. These locations contain at least one "area".  
 
-ToDo:  
+### ToDo:  
+  
 - Add Locations command to display possible locations to enter in map commands
 - Add Caching 
 - Add Explore
@@ -24,7 +27,8 @@ ToDo:
 - Add Inspect
 - Add Pokedex command
 
-Potential Feature Additions:  
+### Potential Feature Additions:  
+  
 - Update the CLI to support the "up" arrow to cycle through previous commands
 - Simulate battles between pokemon
 - Add more unit tests
