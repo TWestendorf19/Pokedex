@@ -6,15 +6,15 @@
   
   Detail returns the details of a specific command and is used with the format 'detail <command>'.  
 
-  Help returns the details of all available commands and is used with the format 'help' or 'help nameonly'. (Adding the nameonly special command just lists the names of all commands with no descriptions)  
+  * Help returns the details of all available commands and is used with the format 'help' or 'help nameonly'. (Adding the nameonly special command just lists the names of all commands with no descriptions)  
 
-  Exit ends the program and is used with the format(Special commands added after exit will be printed back out to the user upon exit)  
+  * Exit ends the program and is used with the format(Special commands added after exit will be printed back out to the user upon exit)  
 
-  Map returns a list of all the "areas" 20 at a time and increments through all of them with each call. (adding the name of a location e.g. canalave-city or mt-coronet will return the areas within that location).  
+  * Map returns a list of all the "areas" 20 at a time and increments through all of them with each call. (adding the name of a location e.g. canalave-city or mt-coronet will return the areas within that location).  
 
-  Mapb is similar to the map command but iterates backwards through the list. (adding the name of a location works the same as map command)  
+  * Mapb is similar to the map command but iterates backwards through the list. (adding the name of a location works the same as map command)  
 
-  Locations will return a list of the "locations" in the game. These locations contain at least one "area".  
+  * Locations will return a list of the "locations" in the game. These locations contain at least one "area".  
 
 ToDo:  
 - Add Locations command to display possible locations to enter in map commands
