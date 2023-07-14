@@ -10,7 +10,7 @@ type AreasResponse struct {
 	} `json:"results"`
 }
 
-type LocationsResponse struct {
+type LocDetailsResponse struct {
 	ID     int    `json:"id"`
 	Name   string `json:"name"`
 	Region struct {
@@ -35,4 +35,14 @@ type LocationsResponse struct {
 		Name string `json:"name"`
 		URL  string `json:"url"`
 	} `json:"areas"`
+}
+
+type LocsResponse struct {
+	Count    int     `json:"count"`
+	Next     *string `json:"next"`
+	Previous *string `json:"previous"`
+	Results  []struct {
+		Name string `json:"name"`
+		URL  string `json:"url"`
+	} `json:"results"`
 }

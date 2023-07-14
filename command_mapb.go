@@ -11,36 +11,42 @@ func commandMapb(cf *config) error {
 		return errors.New("cannot go back--already on first page")
 	}
 	// get location response
-	locationsResp, err := cf.pokeAPIClient.ListAreas(cf.previousURL)
+	areasResp, err := cf.pokeAPIClient.ListAreas(cf.previousURL)
 	if err != nil {
 		return err
 	}
 
 	// reassign next and previous location URLs to iterate forward
-	cf.nextURL = locationsResp.Next
-	cf.previousURL = locationsResp.Previous
+	cf.nextURL = areasResp.Next
+	cf.previousURL = areasResp.Previous
 
-	// print out all locations in area
-	for _, loc := range locationsResp.Results {
+	// print out all areas
+	for _, loc := range areasResp.Results {
 		fmt.Println(loc.Name)
 	}
+
+	fmt.Println()
 
 	return nil
 }
 
 func commandMapbSpec(cf *config, location string) error {
-	fmt.Printf("Printing out all areas in location: '%s'...", location)
+	fmt.Println()
+	fmt.Printf("Printing out all areas in location: '%s'...\n", location)
 
 	// get location response
-	locationsResp, err := cf.pokeAPIClient.ListLocations(location)
+	locationsResp, err := cf.pokeAPIClient.ListLocationsAreas(location)
 	if err != nil {
 		return err
 	}
 
-	// print out all locations in area
+	// print out all areas in location
 	for _, loc := range locationsResp.Areas {
+		fmt.Print("	")
 		fmt.Println(loc.Name)
 	}
+
+	fmt.Println()
 
 	return nil
 }

@@ -14,7 +14,7 @@ func commandDetailSpec(cf *config, commandName string) error {
 	if exists {
 		fmt.Printf("%s: %s\n", cmd.name, cmd.description)
 	} else {
-		fmt.Printf("Command '%s' not found. For more help use 'help' command.", commandName)
+		fmt.Printf("Command '%s' not found. For more help use 'help' command.\n", commandName)
 	}
 	fmt.Println()
 	return nil
@@ -23,5 +23,6 @@ func commandDetailSpec(cf *config, commandName string) error {
 func commandDetail(cf *config) error {
 	fmt.Println()
 	fmt.Println("Cannot use command 'detail' without second command to lookup.")
+	fmt.Println()
 	return nil
 }
