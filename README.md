@@ -6,7 +6,7 @@
 
   ## Commands  
     
-  * Detail returns the details of a specific command and is used with the format 'detail <command>'.  
+  * Detail returns the details of a specific command and is used with the format 'detail 'command''.  
 
   * Help returns the details of all available commands and is used with the format 'help' or 'help nameonly'. (Adding the nameonly special command just lists the names of all commands with no descriptions)  
 
