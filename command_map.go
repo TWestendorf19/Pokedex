@@ -19,7 +19,7 @@ func commandMap(cf *config) error {
 
 	// print out all areas
 	for _, loc := range areasResp.Results {
-		fmt.Print("	")
+		fmt.Print(" | ")
 		fmt.Println(loc.Name)
 	}
 
@@ -40,7 +40,7 @@ func commandMapSpec(cf *config, location string) error {
 
 	// print out all areas in location
 	for _, loc := range locationsResp.Areas {
-		fmt.Print("	")
+		fmt.Print(" | ")
 		fmt.Println(loc.Name)
 	}
 

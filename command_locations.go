@@ -21,7 +21,7 @@ func commandLocations(cf *config) error {
 
 	// print out all locations
 	for _, loc := range locationsResp.Results {
-		fmt.Print("	")
+		fmt.Print(" | ")
 		fmt.Println(loc.Name)
 	}
 
@@ -56,7 +56,7 @@ func commandLocationsBack(cf *config, back string) error {
 
 	// print out all locations
 	for _, loc := range locationsResp.Results {
-		fmt.Print("	")
+		fmt.Print(" | ")
 		fmt.Println(loc.Name)
 	}
 

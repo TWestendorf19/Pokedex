@@ -25,7 +25,7 @@ func commandHelpSpec(cf *config, spec string) error {
 		fmt.Println()
 		fmt.Println("---------------Names---------------")
 		for _, cmd := range getCommands() {
-			fmt.Print("	")
+			fmt.Print(" | ")
 			fmt.Printf("%s\n", cmd.name)
 		}
 	} else { // else print error message
