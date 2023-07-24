@@ -2,6 +2,8 @@
 
   This project is based on a Pokedex project guide that can be found on boot.dev, I highly recommend checking them out if you want to work on backend development.  
 
+  The documentation for the PokeAPI used in this project can be found here: <https://pokeapi.co/docs/v2>  
+
   At this stage it is a simple command line interface that has a help and detail command to assist the user, a few traversal commands, and an exit command to end the program.
 
   ## Commands  
